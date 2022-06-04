@@ -1,8 +1,11 @@
 import { readFile } from "fs/promises";
 import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+const _filename = fileURLToPath(import.meta.url);
+const __dirname =  path.dirname(_filename);
 
 export const read = async () => {
-    const __dirname = path.resolve(path.dirname(""));
     const pathToFile = path.join(__dirname, 'files', 'fileToRead.txt');
 
     try {
@@ -12,3 +15,6 @@ export const read = async () => {
         throw new Error('FS operation failed');
     }
 };
+
+//test 
+await read();

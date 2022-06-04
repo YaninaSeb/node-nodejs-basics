@@ -1,8 +1,11 @@
 import * as path from 'path';
 import { mkdir, readdir, copyFile, access } from "fs/promises";
+import { fileURLToPath } from 'url';
+
+const _filename = fileURLToPath(import.meta.url);
+const __dirname =  path.dirname(_filename);
 
 const copyFiles = async () => {
-    const __dirname = path.resolve(path.dirname(""));
     const pathToDir = path.join(__dirname, 'files');
 
     try {
@@ -18,7 +21,6 @@ const copyFiles = async () => {
 }
 
 export const copy = async () => {
-    const __dirname = path.resolve(path.dirname(""));
     const pathToDir = path.join(__dirname, 'files');
 
     try {
@@ -30,3 +32,6 @@ export const copy = async () => {
         throw new Error('FS operation failed');
     }
 };
+
+//test
+await copy();

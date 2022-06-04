@@ -8,3 +8,6 @@ export const parseArgs = () => {
     });
     console.log(res.join(', '));
 };
+
+//test
+parseArgs();

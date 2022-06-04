@@ -11,3 +11,6 @@ export const transform = async () => {
     process.stdout.write('Please, enter text...\n');
     process.stdin.pipe(myTransform).pipe(process.stdout);
 };
+
+//test
+await transform();

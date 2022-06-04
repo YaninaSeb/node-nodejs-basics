@@ -2,15 +2,17 @@ import path from 'path';
 import { release, version } from 'os';
 import { createServer as createServerHttp } from 'http';
 import { readFile } from 'fs/promises';
+import { createRequire } from 'module';
 import './files/c.js';
 
+const require = createRequire(import.meta.url);
 const random = Math.random();
 let unknownObject;
 
 if (random > 0.5) {
-    unknownObject = JSON.parse(await readFile('./files/a.json'));
+    unknownObject = require("./files/a.json");
 } else {
-    unknownObject = JSON.parse(await readFile('./files/b.json'));
+    unknownObject = require("./files/a.json");
 }
 
 console.log(`Release ${release()}`);
@@ -25,3 +27,7 @@ const createMyServer = createServerHttp((_, res) => {
 });
 
 export { unknownObject, createMyServer};
+
+//test 
+console.log(unknownObject);
+createMyServer.listen(3000);

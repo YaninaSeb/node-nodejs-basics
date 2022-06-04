@@ -1,8 +1,11 @@
 import * as path from 'path';
 import { createReadStream } from 'fs';
+import { fileURLToPath } from 'url';
+
+const _filename = fileURLToPath(import.meta.url);
+const __dirname =  path.dirname(_filename);
 
 export const read = async () => {
-    const __dirname = path.resolve(path.dirname(""));
     const pathToFile = path.join(__dirname, 'files', 'fileToRead.txt');
     const readStream = createReadStream(pathToFile);
     let text = '';
@@ -14,3 +17,6 @@ export const read = async () => {
         process.stdout.write(text + '\n');
     });
 };
+
+//test
+await read();

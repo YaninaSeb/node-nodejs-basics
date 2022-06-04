@@ -8,3 +8,6 @@
     });
     console.log(res.join('; '));
 };
+
+//test
+parseEnv();
