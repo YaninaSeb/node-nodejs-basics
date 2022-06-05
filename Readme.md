@@ -34,5 +34,3 @@
 **7) Worker Threads**
    - npm run wt:worker
 
-**8) Child Processes**
-   - npm run cp
