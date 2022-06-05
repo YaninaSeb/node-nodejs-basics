@@ -1,5 +1,7 @@
 # Node.js basics
 
+## Use 16.13.0 version of Node.js
+
 ## Scripts for testing
 
 **1) File system**
